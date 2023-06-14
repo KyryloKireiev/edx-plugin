@@ -107,7 +107,7 @@ setup(
     long_description=README + '\n\n' + CHANGELOG,
     author='kyrylo',
     author_email='kirillkireev888@gmail.com',
-    url='https://github.com/openedx/edx-plugin',
+    url='https://github.com/KyryloKireiev/edx-plugin',
     packages=find_packages(
         include=['edx_plugin', 'edx_plugin.*'],
         exclude=["*tests"],
@@ -128,4 +128,9 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
     ],
+    entry_points={
+        "lms.djangoapp": [
+            "edx_plugin = edx-plugin.edx_plugin.apps:EdxPluginConfig",
+        ],
+    }
 )
