@@ -130,7 +130,7 @@ setup(
     ],
     entry_points={
         "lms.djangoapp": [
-            "edx_plugin = edx-plugin.edx_plugin.apps:EdxPluginConfig",
+            "edx_plugin = edx_plugin.apps:EdxPluginConfig",
         ],
     }
 )

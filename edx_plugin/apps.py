@@ -3,7 +3,7 @@ from edx_django_utils.plugins.constants import (
     PluginURLs, PluginSettings, PluginContexts
 )
 class EdxPluginConfig(AppConfig):
-    name = 'edx-plugin.edx_plugin'
+    name = 'edx_plugin'
 
     # Class attribute that configures and enables this app as a Plugin App.
     plugin_app = {
@@ -18,19 +18,19 @@ class EdxPluginConfig(AppConfig):
             'lms.djangoapp': {
 
                 # The namespace to provide to django's urls.include.
-                PluginURLs.NAMESPACE: 'edx_plugin',
+                PluginURLs.NAMESPACE: 'edx_plugin.urls',
 
                 # The application namespace to provide to django's urls.include.
                 # Optional; Defaults to None.
-                PluginURLs.APP_NAME: 'edx_plugin',
+                PluginURLs.APP_NAME: None,
 
                 # The regex to provide to django's urls.url.
                 # Optional; Defaults to r''.
-                PluginURLs.REGEX: r'^api/my_app/',
+                PluginURLs.REGEX: r'',
 
                 # The python path (relative to this app) to the URLs module to be plugged into the project.
                 # Optional; Defaults to 'urls'.
-                PluginURLs.RELATIVE_PATH: 'edx_plugin.urls',
+                PluginURLs.RELATIVE_PATH: 'urls',
             }
         },
 
@@ -53,19 +53,6 @@ class EdxPluginConfig(AppConfig):
                 'common': {
                     PluginSettings.RELATIVE_PATH: 'settings.common',
                 },
-            }
-        },
-
-        # Configuration setting for Plugin Contexts for this app.
-        PluginContexts.CONFIG: {
-
-            # Configure the Plugin Signals for each Project Type, as needed.
-            'lms.djangoapp': {
-
-                # Key is the view that the app wishes to add context to and the value
-                # is the function within the app that will return additional context
-                # when called with the original context
-                'course_dashboard': 'my_app.context_api.get_dashboard_context'
             }
         }
     }
