@@ -77,6 +77,31 @@ Every time you develop something in this repo
 
   # Open a PR and ask for review.
 
+Plugin installation
+===================
+
+.. code-block::
+
+  # You need to clone plugin repository to src folder in Open edX platform
+
+  # Enter lms shell (you need to type command in your devstack directory):
+  make dev.shell.lms
+
+  # In lms shell navigate to edx-plugin in src directory. You should be in plugin
+  # directory. There is setup.py file
+  root@lms:/edx/src/edx-plugin#
+
+  # Install plugin app in editable mode
+  pip install -e .
+
+  # Now you need to add plugin link to header in the lms platform. Also type commands in
+  # lms shell. You should be in plugin directory, where header_script.py is
+  python header_script.py
+
+  # If you made some changes in edx-plugin's header, run previous commands again,
+  # this makes changes in lms platform header templates
+
+
 Deploying
 =========
 
