@@ -3,11 +3,12 @@ from common.djangoapps.edxmako.shortcuts import render_to_response
 from openedx.core.djangoapps.programs.models import ProgramsApiConfig
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET
+from django.utils.translation import gettext as _
 
 
 # test response
 def get_test_plugin(request):
-    return HttpResponse("This is plugin page")
+    return HttpResponse(_("This is test plugin page"))
 
 
 @login_required
@@ -21,4 +22,4 @@ def get_plugin_page(request):
         'show_program_listing': programs_config.enabled,
         'uses_bootstrap': True,
     }
-    return render_to_response('plugin_page.html', context)
+    return render_to_response('edx_plugin/plugin_page.html', context)

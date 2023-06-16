@@ -94,13 +94,12 @@ Plugin installation
   # Install plugin app in editable mode
   pip install -e .
 
-  # Now you need to add plugin templates to lms platform. Also type commands in
-  # lms shell
-  cp /edx/src/edx-plugin/edx_plugin/templates/edx_plugin/plugin_page.html /edx/app/edxapp/edx-platform/lms/templates
+  # Now you need to add plugin link to header in the lms platform. Also type commands in
+  # lms shell. You should be in plugin directory, where header_script.py is
   python header_script.py
 
-  # If you made some changes in edx-plugin's templates, run previous commands again,
-  # this makes changes in lms platform templates
+  # If you made some changes in edx-plugin's header, run previous commands again,
+  # this makes changes in lms platform header templates
 
 
 Deploying

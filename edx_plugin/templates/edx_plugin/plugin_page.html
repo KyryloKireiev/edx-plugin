@@ -1,7 +1,7 @@
 <%! main_css = "css/bootstrap/lms-main.css" %>
 
 <%page expression_filter="h"/>
-<%inherit file="main.html" />
+<%inherit file="../main.html"/>
 <%def name="online_help_token()"><% return "programs" %></%def>
 <%!
 from django.utils.translation import ugettext as _
@@ -12,4 +12,4 @@ from openedx.core.djangolib.markup import HTML
 
 <%block name="plugin_page"><h1>${_("This is the plugin page")}</h1></%block>
 
-<%include file="learner_dashboard/_dashboard_navigation_programs.html"/>
+<%include file="../learner_dashboard/_dashboard_navigation_programs.html"/>
